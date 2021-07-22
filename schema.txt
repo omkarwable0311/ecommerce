@@ -1,0 +1,15 @@
+!) create table seeler(s_id int not null,seeller_name varchar(20),company_name varchar(50),contact varchar(15),Address varchar(50),country varchar(10),state varchar(10),city varchar(10),postalcode bigint,fax varchar(10),email varchar(20),payment_methods varchar(20),offers boolean);
+
+2) create table seeler(s_id int not null,seeller_name varchar(20),company_name varchar(50),contact varchar(15),Address varchar(50),country varchar(10),state varchar(10),city varchar(10),postalcode bigint,fax varchar(10),email varchar(20),payment_methods varchar(20),offers boolean);
+
+
+3)create table shipper(shipperid int primary key,company varchar(10),name varchar(20),contact varchar(20));
+
+
+
+4)create table orderdetails(o_id int primary key,ordernumber int not null,orderdate date,shipdate date,paymenttype varchar(10),shipperid int references shipper,paymentstetus varchar(10),paymentdate date,saletax int);
+
+5)create table payment(p_id int primary key,paymenttype varchar(20),o_id int references orderdetails,allowed boolean);
+
+6)create table customer(cust_id int primary key,firstname varchar(10),lastname varchar(10),contact varchar(15),email varchar(20),address1 varchar(20),address2 varchar(20),postalcode bigint,shipaddress varchar(20),addresstype varchar(10),availabletime time,o_id int references orderdetails);
+
